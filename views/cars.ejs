@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <style media="screen">
+    body {
+      font-family: 'Lato', sans-serif;
+      color: #4A4A4A;
+      display: flex;
+      justify-content:center;
+      align-items: center;
+      margin:0;
+      padding: 0;
+        background-color: #000201;
+        color: white;
+    }
+    form{
+      width: 80%;
+
+      padding: 30px;
+    }
+    .carD{
+      margin: 30px auto;
+
+      width: 80%;
+
+      padding: 30px;
+      background-color: #6A8498;
+    }
+    </style>
+  </head>
+  <body>
+
+    <form class="" action="/carrent" method="post">
+
+      <% cars.forEach(function (car) { %>
+        <div class="carD border border-dark rounded ">
+
+
+        <label for="">Car Name: </label>
+        <input class="form-control" type="text" value="<%= car.name %>" aria-label="readonly input example" readonly>
+
+      <label for="">Car Year: </label>
+      <input class="form-control" type="text" value="<%= car.year %>" aria-label="readonly input example" readonly>
+      <label for="">Car Model: </label>
+      <input class="form-control" type="text" value="<%= car.model %>" aria-label="readonly input example" readonly>
+      <label for="">Car KM: </label>
+      <input class="form-control" type="text" value="<%= car.km %>" aria-label="readonly input example" readonly>
+      <label for="">Car Seats: </label>
+      <input class="form-control" type="text" value="<%= car.seats%>" aria-label="readonly input example" readonly>
+      <label for="">Car plate N.O. : </label>
+      <input class="form-control" type="text" value="<%= car.plate %>" aria-label="readonly input example" readonly>
+      <label for="">Car notes: </label>
+      <input class="form-control" type="textarea" value="<%= car.notes %>" aria-label="readonly input example" readonly>
+
+  <br>
+    <%  car.images.forEach(function(img){ %>
+        <img src="<%=img%>" alt="no img" class="rounded" style="width: 200px; height:200px; ">
+    <%  }) %>
+    <br>
+    <br>
+
+    <%  if (car.rented == "not rented") { %>
+      <input  type="checkbox" onchange="this.form.submit()" name="carrent" value="<%=car._id%>" >
+      <label for="">rent this car</label>
+      <% } %>
+
+
+
+<!-- <form class="" action="/revokerent" method="post">
+  <input type="checkbox" onchange="this.form.submit()" name="revokerent"  value="<%=car._id%>">
+</form> -->
+
+
+<br>
+<br>
+<br>
+
+      </div>
+
+  <% }) %>
+
+    </form>
+
+
+
+  </body>
+</html>

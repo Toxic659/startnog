@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <style media="screen">
+    body {
+      font-family: 'Lato', sans-serif;
+      color: #4A4A4A;
+      display: flex;
+      justify-content:left;
+      align-items: left;
+      margin-left:2.5%;
+      margin-right:2.5%;;
+    }
+    form{
+      margin-bottom: 30px;
+      margin-top: 30px;
+    }
+    .carD{
+      margin-bottom: 30px;
+      margin-top: 30px;
+      padding: 30px;
+    }
+
+    </style>
+  </head>
+  <body>
+
+        <form class="" action="/revokerent" method="post">
+          <% arr.forEach(function (arrs) { %>
+            <div class="carD border border-dark rounded">
+              <label for="">Car Name: </label>
+              <input class="form-control" type="text" value="<%= arrs.name %>" aria-label="readonly input example" readonly>
+              <label for="">Car Year: </label>
+              <input class="form-control" type="text" value="<%= arrs.year %>" aria-label="readonly input example" readonly>
+              <label for="">Car Model: </label>
+        <input class="form-control" type="text" value="<%= arrs.model %>" aria-label="readonly input example" readonly>
+        <label for="">Car KM: </label>
+        <input class="form-control" type="text" value="<%= arrs.km %>" aria-label="readonly input example" readonly>
+        <label for="">Car Name: </label>
+        <input class="form-control" type="text" value="<%= arrs.notes %>" aria-label="readonly input example" readonly>
+        <label for="">Car Status: </label>
+        <input class="form-control" type="text" value="<%= arrs.rented %>" aria-label="readonly input example" readonly>
+
+
+
+
+
+
+
+
+
+      <br>
+
+        <%  arrs.images.forEach(function(img){ %>
+            <img src="<%=img%>" alt="no img" style="width: 200px; height:200px">
+        <%  }) %>
+        <br>
+        <br>
+        <label for="">how many KM</label>
+        <input class="form-control" type="text" name="oilchange" value="">
+        <br>
+
+
+
+    <input type="checkbox" onchange="this.form.submit()" name="carrent" value="<%=arrs._id%>">
+    <label for="">revoke rent</label>
+
+
+
+
+
+          <br> <!-- note you defined the field as Name not name -->
+
+
+          </div>
+      <% }) %>
+        </form>
+  </body>
+</html>

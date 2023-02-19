@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<style media="screen">
+  body {
+    font-family: 'Lato', sans-serif;
+    color: #4A4A4A;
+    justify-content:left;
+    align-items: left;
+    margin-left:2.5%;
+    margin-right:2.5%;;
+  }
+  .users{
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding: 30px;
+  }
+</style>
+  </head>
+  <body>
+  <% users.forEach(function(us){ %>
+    <div class="users border border-dark rounded">
+
+    <label for="">The tenant of the car name</label>
+    <input class="form-control" type="text" name="renname" value="<%=us.name%>" readonly>
+    <label for="">The tenant of the car ID number</label>
+    <input class="form-control" type="text" name="renid" value="<%=us.tid%>" readonly>
+    <label for="">The beginning of the lease term</label>
+    <input class="form-control" type="date" name="rendates" value="<%=us.startDate%>" readonly>
+    <label for="">The end of the lease term</label>
+    <input class="form-control" type="date" name="rendatee" value="<%=us.endDate%>" readonly>
+    <label for="">Car details</label>
+
+    <input class="form-control" type="text" name="rendatee" value="<%=us.carDetails[0].name%>, <%=us.carDetails[0].year%>, <%=us.carDetails[0].model%>, <%=us.carDetails[0].km%> " readonly>
+
+  </div>
+
+
+
+
+
+  <% }) %>
+  </body>
+</html>
