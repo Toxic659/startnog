@@ -106,7 +106,7 @@ const carSchema = new mongoose.Schema({
   km: String,
   notes: String,
   rented : String,
-  oilcahnge : Number,
+  oilcahnge : String ,
   plate : String,
   seats: String,
   images: [String]
@@ -219,7 +219,7 @@ app.post("/Addacar", upload.array('images', 5), function(req, res){
     seats,
     notes,
     rented : "not rented",
-    oilcahnge :0,
+    oilcahnge :"0",
     images: imagePaths
   });
   newCar.save();
@@ -312,14 +312,12 @@ let deatils = {
 
 }
 
-const oilchangevalue = Number(req.body.oilcahnge);
-console.log(typeof( oilchangevalue));
 
-  carModel.findByIdAndUpdate(req.body.carrent , {rented : "not rented" , oilcahnge : oilchangevalue } , function(err,doc){
+  carModel.findByIdAndUpdate(req.body.carrent , {rented : "not rented" , oilcahnge : req.body.oilcahnge } , function(err,doc){
     if (err) {
       console.log(err)
     }else {
-      if(oilchangevalue > 10000) {
+      if(true) {
         mailTransporter.sendMail(deatils,function(err){
           if (err){
             console.log("err");
@@ -327,15 +325,36 @@ console.log(typeof( oilchangevalue));
             console.log("email sent!")
           }
         });
+      }else {
+        console.log(typeof(req.body.oilcahnge) + "" + parseInt(req.body.oilcahnge, 10));
       }
 
       console.log("updated" , doc);
-      console.log(typeof( oilchangevalue));
-      res.redirect("/");
+      res.redirect("/dash");
     }
   });
 });
 
+
+app.get("/del" , function(req,res){
+  carModel.find({}, function(err, data){
+    if (err) {
+      console.log("data send err");
+    } else {
+      res.render("del", {cars: data});
+    }
+  });
+});
+app.post("/del" , function(req,res){
+  carModel.findByIdAndDelete(req.body.cardel, (err, deletedDoc) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(`Deleted document: ${deletedDoc}`);
+    res.redirect("/dash"); 
+  }
+});
+});
 // server.listen(port, hostname, () => {
 //   console.log(`Server running at http://${hostname}:${port}/`);
 // });
