@@ -87,13 +87,22 @@
     .sidenavv a:hover{
       color: green;
     }
+    .dashbtn{
+      background-color: #e3faac;
+      color: black;
+      margin-left: 19%;
+      margin-top: 10px;
+    }
+    .dashbtn:hover{
+      background-color: green;
+    }
   </style>
   <script src="https://kit.fontawesome.com/ffb4c77547.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <section class="sideBar">
-    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasDark" role="button" aria-controls="offcanvasDarkLabel"> Link with href </a>
+    <a class="btn btn-primary dashbtn" data-bs-toggle="offcanvas" href="#offcanvasDark" role="button" aria-controls="offcanvasDarkLabel"> Link with href </a>
     <div class="offcanvas offcanvas-start show text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasDarkLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Starngo</h5>
@@ -210,11 +219,13 @@
         <a href="/rented"><button type="button" class="btn btn-success">Revoke Rent</button></a>
       </div>
       <div class="col-lg-3  d-flex justify-content-center">
-        <a href="/delete"><button type="button" class="btn btn-success">delete car</button></a>
+        <a href="/del"><button type="button" class="btn btn-success">delete car</button></a>
       </div>
     </div>
   </section>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
